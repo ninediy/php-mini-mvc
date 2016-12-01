@@ -1,6 +1,7 @@
 <?php
-define('BASEPATH', "");
-
+session_start();
+error_reporting(E_ALL);
+define('BASEPATH', "/roampassweb/");
 require './config/init.php';
 
 class index extends config {
