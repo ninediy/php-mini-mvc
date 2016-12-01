@@ -5,9 +5,7 @@ interface SyntaxFramework {
 
     function loadview($view = '', $parameter = array());
 
-    function renderParameter($parameter);
-
-    function loadModel($modelName);
+    function loadModel($modelName,$prefix);
 
     function getRequest();
 

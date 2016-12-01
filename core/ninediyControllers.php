@@ -1,21 +1,22 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ninediyControllers implements SyntaxFramework {
 
     function loadview($view = '', $parameter = array()) {
-        $this->renderParameter($parameter);
-        include './views/' . $view;
-    }
-
-    function renderParameter($parameter) {
         foreach ($parameter as $key => $value) {
             ${$key} = $value;
         }
-    }
+        include './views/' . $view;
+    }        
 
-    function loadModel($modelName) {
-        $this->model = new $modelName();
+    function loadModel($modelName, $prefix = null) {
+        if ($prefix) {
+            $this->$prefix = new $modelName();
+        } else {
+            $this->$model_name = new $modelName();
+        }
     }
 
     function getRequest() {//Get request method
@@ -49,8 +50,8 @@ class ninediyControllers implements SyntaxFramework {
 
     function post($param = NULL) {
         if ($param) {
-            if (isset($_GET[$param])) {
-                return $_GET[$param];
+            if (isset($_POST[$param])) {
+                return $_POST[$param];
             } else {
                 return '';
             }

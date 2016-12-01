@@ -134,11 +134,16 @@ final class DatabaseHelper extends MySQL_Abstract {
         return isset($names[$name]);
     }
 
-    public function connect($host = 'localhost', $username = 'root', $password = '', $dbname = 'roampass_db') {
-        if (!@$this->connection->real_connect(
-                        $host, $username, $password, $dbname
-                )
-        ) {
+    public function connect($host = '', $username = '', $password = '', $dbname = '') {
+
+        if (!$host && !$username && !$password && !$dbname) {
+            $host = $GLOBALS['databaseConfig']['host'];
+            $username = $GLOBALS['databaseConfig']['username'];
+            $password = $GLOBALS['databaseConfig']['password'];
+            $dbname = $GLOBALS['databaseConfig']['databaseName'];
+        }
+
+        if (!@$this->connection->real_connect($host, $username, $password, $dbname)) {
             throw new MySQL_Exception($this->connection->connect_error);
         }
     }
