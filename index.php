@@ -13,6 +13,7 @@ class index extends config {
     public function __construct() {
         $this->run(); //Run system
         $this->route(); //Run route
+        $this->regenerateSession();//Regenerate Session
     }
 
     protected function run() {//running system 
