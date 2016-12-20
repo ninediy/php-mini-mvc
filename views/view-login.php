@@ -22,7 +22,7 @@ and open the template in the editor.
 
                 <div class="col-md-6">
 
-                    <div class="panel panel-primary">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             Login
                         </div>
@@ -39,7 +39,7 @@ and open the template in the editor.
                                         <input id="password" type="password" autocomplete="false" name="password" class="form-control" value="">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-block btn-lg" type="submit">Login</button>
+                                        <button class="btn btn-link btn-block btn-lg" type="submit">Login</button>
                                     </div>
                                 </form>
                             </div>
