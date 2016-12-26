@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-final class DatabaseHelper extends MySQL_Abstract {
+final class Mysqli_helper extends MySQL_Abstract {
 
     protected $connection;
 

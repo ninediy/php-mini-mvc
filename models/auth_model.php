@@ -3,7 +3,7 @@
 class auth_model {
 
     public function __construct() {
-        $this->db = new DatabaseHelper();
+        $this->db = new Mysqli_helper();
         $this->db->connect();
     }
 
