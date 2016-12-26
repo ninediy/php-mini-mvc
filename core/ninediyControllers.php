@@ -9,13 +9,21 @@ class ninediyControllers implements SyntaxFramework {
             ${$key} = $value;
         }
         include './views/' . $view;
-    }        
+    }
 
     function loadModel($modelName, $prefix = null) {
         if ($prefix) {
-            $this->$prefix = new $modelName();
+            $this->$prefix = new $modelName() . '_model.php';
         } else {
-            $this->$model_name = new $modelName();
+            $this->$model_name = new $modelName() . '_model.php';
+        }
+    }
+
+    function loadHelper($helperName, $prefix = null) {
+        if ($prefix) {
+            $this->$prefix = new $helperName() . '_helper.php';
+        } else {
+            $this->$helper_name = new $helperName() . '_helper.php';
         }
     }
 
