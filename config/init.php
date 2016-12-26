@@ -15,7 +15,7 @@ require './config/config.php'; //configucation file
 require './config/Request.php'; //Get request
 require './config/SyntaxFramework.php'; //interface
 require './core/ninediyControllers.php'; //core controller
-require './helper/DatabaseHelper.php'; //database helper
+require './helper/DatabaseHelper.php'; //database helper mysqli
 
 foreach (glob('./controllers/*.php') as $key => $value) {//required all file from controller
     require $value;
