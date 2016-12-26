@@ -16,6 +16,7 @@ class config {
         } else {
             $_SESSION['regenerated_count'] = 0;
         }
+        return $this;
     }
 
     public function checkUserAgent($byIp = true) {

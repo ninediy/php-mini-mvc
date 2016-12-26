@@ -1,9 +1,10 @@
 <?php
+
 session_start();
 
 error_reporting(E_ALL);
 
-define('BASEPATH', "/");//config your path here
+define('BASEPATH', "/"); //config your path here
 require './config/init.php';
 
 class index extends config {
@@ -11,9 +12,7 @@ class index extends config {
     public $input;
 
     public function __construct() {
-        $this->run(); //Run system
-        $this->route(); //Run route
-        $this->regenerateSession();//Regenerate Session
+        $this->run()->route()->regenerateSession();
     }
 
     protected function run() {//running system 
@@ -22,6 +21,7 @@ class index extends config {
         if (isset($_SERVER['PATH_INFO'])) {
             $this->request->url_elements = explode('/', $_SERVER['PATH_INFO']);
         }
+        return $this;
     }
 
     protected function route() {//Route controller and function method
@@ -55,6 +55,7 @@ class index extends config {
                 die;
             }
         }
+        return $this;
     }
 
 }
