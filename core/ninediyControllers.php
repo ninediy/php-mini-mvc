@@ -31,16 +31,16 @@ class ninediyControllers implements SyntaxFramework {
         $verb = $_SERVER['REQUEST_METHOD'];
         switch ($verb) {
             case 'GET':
-                return $_GET;
-                break;
+            return $_GET;
+            break;
             case 'POST':
             case 'PUT':
-                return json_decode(file_get_contents('php://input'), 1);
-                break;
+            return json_decode(file_get_contents('php://input'), 1);
+            break;
             case 'DELETE':
             default:
-                $return = array();
-                break;
+            $return = array();
+            break;
         }
     }
 
@@ -83,6 +83,13 @@ class ninediyControllers implements SyntaxFramework {
 
     function inputall() {
         return json_decode(file_get_contents('php://input'));
+    }
+
+    function clean_input($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 
 }
