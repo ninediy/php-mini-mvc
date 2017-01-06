@@ -88,7 +88,7 @@ class ninediyControllers implements SyntaxFramework {
     function clean_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
-        $data = htmlspecialchars($data);
+        $data = htmlentities($data);
         return $data;
     }
 
